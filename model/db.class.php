@@ -1,4 +1,5 @@
     <?php
+    
     class db {
     	private $conn;
     	private $host;
@@ -10,28 +11,14 @@
      
         function __construct($params=array()) {
     		$this->conn = false;
-    		$this->host = ''; //hostname
-    		$this->user = ''; //username
-    		$this->password = ''; //password
-    		$this->baseName = 'pordede'; //name of your database
-    		$this->port = '3306';
+    		$this->host = $params['host']; //hostname
+    		$this->user = $params['user']; //username
+    		$this->password = $params['password']; //password
+    		$this->baseName = $params['baseName']; //name of your database
+    		$this->port = $params['port'];
     		$this->debug = true;
     		$this->connect();
     	}
-     
-        /*
-        #local         
-        function __construct($params=array()) {
-    		$this->conn = false;
-    		$this->host = 'localhost'; //hostname
-    		$this->user = 'davidperezmillan'; //username
-    		$this->password = ''; //password
-    		$this->baseName = 'pordede'; //name of your database
-    		$this->port = '3306';
-    		$this->debug = true;
-    		$this->connect();
-    	}
-    	*/
      
     	function __destruct() {
     		$this->disconnect();

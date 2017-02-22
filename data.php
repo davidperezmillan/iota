@@ -1,6 +1,7 @@
 <?php
 		include('model/db.class.php'); // call db.class.php
-		$bdd = new db(); // create a new object, class db()
+		include('model/properties.php'); // call db.class.php
+		$bdd = new db($propBBDD); // create a new object, class db()
 		
 		/*
 		    $query = $bdd->execute('INSERT INTO users (firstname, lastname) VALUES ("firstname1", "lastname1")');
