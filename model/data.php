@@ -1,6 +1,6 @@
 <?php
-		include('model/db.class.php'); // call db.class.php
-		include('model/properties.php'); // call db.class.php
+		include('./db.class.php'); // call db.class.php
+		include('./properties.php'); // call db.class.php
 		$bdd = new db($propBBDD); // create a new object, class db()
 		
 		/*
@@ -19,23 +19,19 @@
 		
 		$links = $bdd->getAll($sqlGeneral);
 		
-		$container = array();
+		$container = array("data" => array());
 		$rows = array();	
 		foreach($links as $link) { // display the list
-			$row['id'] = $link['id'];
-			$data = array();
+			$rows['id'] = $link['id'];
 			$serie = str_replace("-", " ", explode("/", $link['serie'])[2]);
-			$data[0] = $serie;
-			$data[1] = $link['title'];
-			$data[2] = $link['season'];
-			$data[3] = $link['episode'];
-			$data[4] = ($link['link_8']) ?  'Stream - '. $link['link_8'].'^'.$link['link_8']: "";
-			$data[5] = ($link['link_36']) ?  'Pow - '. $link['link_36'].'^'.$link['link_36']: "";
-			
-			$row['data'] = $data;
-			array_push($rows,$row);
+			$rows['serie'] = $serie;
+			$rows['title'] = $link['title'];
+			$rows['season'] = $link['season'];
+			$rows['episode'] = $link['episode'];
+			$rows['link_8'] = $link['link_8'];
+			$rows['link_36'] = $link['link_36'];
+			array_push($container['data'], $rows);
 		}
-		$container['rows'] = $rows;
-		print json_encode($container, JSON_NUMERIC_CHECK);
+		echo json_encode($container);
 		
 ?>
