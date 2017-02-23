@@ -57,6 +57,7 @@
 					[5, 10, 25, 50, "All"]
 				],
 				paging: true,
+				iDisplayLength: 25,
 				
 				// llamada y control de datos
 				ajax: "model/data.php",
@@ -85,16 +86,16 @@
 					width: "2%",
 					className : "min-tablet-l"
 				}, {
-					data: "link_8",
-					"fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
-						$(nTd).html("<a href='" + oData.link_8 + "'>" + oData.link_8 + "</a>");
+					data: null,
+					render: function ( row, type, val, meta ) { 
+					   	return "<a href='" + val.link_8 + "'>" + val.link_8 + "</a>";
 					},
 					width: "25%",
 					className : "desktop"
 				}, {
 					data: "link_36",
-					"fnCreatedCell": function(nTd, sData, oData, iRow, iCol) {
-						$(nTd).html("<a href='" + oData.link_36 + "'>" + oData.link_36 + "</a>");
+					render: function ( row, type, val, meta ) { 
+					   	return "<a href='" + val.link_36 + "'>" + val.link_36 + "</a>";
 					},
 					width: "25%",
 					className : "desktop"
