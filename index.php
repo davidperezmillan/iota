@@ -49,7 +49,7 @@
 
 
 		$(document).ready(function() {
-			$('#mygrid').DataTable({
+			var table = $('#mygrid').DataTable({
 				
 				// Registros a mostrar
 				lengthMenu: [
@@ -111,6 +111,12 @@
 
 
 			});
+		
+			// funciones
+			table.search("<?=$_GET['search'];?>").draw();
+		
+			
+			
 		});
 	</script>
 </head>
