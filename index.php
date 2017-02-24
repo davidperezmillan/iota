@@ -88,18 +88,23 @@
 				}, {
 					data: null,
 					render: function ( row, type, val, meta ) { 
-					   	return "<a href='" + val.link_8 + "'>" + val.link_8 + "</a>";
+					   	return (val.link_8) ? "<a href='" + val.link_8 + "'>" + val.link_8 + "</a>" : ""
 					},
 					width: "25%",
 					className : "desktop"
 				}, {
-					data: "link_36",
+					data: null,
 					render: function ( row, type, val, meta ) { 
-					   	return "<a href='" + val.link_36 + "'>" + val.link_36 + "</a>";
+						return (val.link_36) ? "<a href='" + val.link_36 + "'>" + val.link_36 + "</a>" : ""
 					},
 					width: "25%",
 					className : "desktop"
+				},{
+					data: "actualizacion",
+					width: "10%",
+					className : "desktop"
 				}],
+				order: [[ 6, "desc" ]],
 				language: lang,
 				responsive: true,
 				colReorder: true
@@ -122,6 +127,7 @@
 					<th></th>
 					<th>Stream</th>
 					<th>Pow</th>
+					<th>Actualizacion</th>
 				</tr>
 			</thead>
 			<!--

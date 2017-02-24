@@ -11,6 +11,8 @@
 		    	tmp.serie, tmp.title,tmp.season, tmp.episode,
 		    	(select eml.link from enlaces eml where eml.episode=tmp.id and eml.type=8) as link_8, 
 		    	(select eml.link from enlaces eml where eml.episode=tmp.id and eml.type=36) as link_36,
+		    	(select eml.actualizacion from enlaces eml where eml.episode=tmp.id and eml.type=8) as actualizacion_8, 
+		    	(select eml.actualizacion from enlaces eml where eml.episode=tmp.id and eml.type=36) as actualizacion_36, 
 		    	tmp.status
 		    FROM temporadas tmp
 		    WHERE tmp.status = 0
@@ -30,6 +32,7 @@
 			$rows['episode'] = $link['episode'];
 			$rows['link_8'] = $link['link_8'];
 			$rows['link_36'] = $link['link_36'];
+			$rows['actualizacion'] = ( $link['actualizacion_8']> $link['actualizacion_36']) ?  $link['actualizacion_8'] :  $link['actualizacion_36'];
 			array_push($container['data'], $rows);
 		}
 		echo json_encode($container);
