@@ -3,22 +3,27 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>IOTA</title>
+	<title>IOTA 2</title>
 
-	<link rel="stylesheet" type="text/css" href="datatable/DataTables-1.10.13/css/jquery.dataTables.css" />
-	<link rel="stylesheet" type="text/css" href="datatable/Responsive-2.1.1/css/responsive.dataTables.css" />
-
+	<!-- <link rel="stylesheet" type="text/css" href="datatable/DataTables-1.10.13/css/jquery.dataTables.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="datatable/Responsive-2.1.1/css/responsive.dataTables.css" /> -->
+	
 	<script type="text/javascript" src="datatable/jQuery-2.2.4/jquery-2.2.4.js"></script>
 	<script type="text/javascript" src="datatable/DataTables-1.10.13/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" src="datatable/Responsive-2.1.1/js/dataTables.responsive.js"></script>
+	<script type="text/javascript" src="datatable/Responsive-2.1.1/js/dataTables.responsive.js"></script> 
 
 	<!-- skins -->
-
+	<!--
 	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" />
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.semanticui.min.css" />
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.semanticui.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
-
+	-->
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css">
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap.min.js"></script>
 
 
 	<script>
@@ -58,7 +63,7 @@
 				],
 				paging: true,
 				iDisplayLength: 25,
-				
+
 				// llamada y control de datos
 				ajax: "model/data.php",
 				columns: [
@@ -76,7 +81,7 @@
 				}, {
 					data: "title",
 					width : "10%",
-					className : "min-tablet-l"
+					className : "min-tablet-p"
 				}, {
 					data: "season",
 					width: "2%",
@@ -107,23 +112,32 @@
 				order: [[ 6, "desc" ]],
 				language: lang,
 				responsive: true,
-				colReorder: true
+				colReorder: true,
+				pagingType: "numbers",
 
+				
+        		
 
 			});
 		
 			// funciones
-			table.search("<?=$_GET['search'];?>").draw();
+			table.search("<?= htmlspecialchars($_GET['search']);?>").draw();
 		
 			
 			
 		});
 	</script>
+	
+	<style type="text/css">
+		div#contenido{
+			padding: 10px;
+		}
+	</style>
 </head>
 
 <body>
-	<div id="contenido" style="padding: 1%">
-		<table id="mygrid" class="display" >
+	<div id="contenido">
+		<table id="mygrid" class="table table-striped table-bordered" >
 			<thead>
 				<tr>
 			
