@@ -104,12 +104,19 @@
 					},
 					width: "25%",
 					className : "desktop"
+				}, {
+					data: null,
+					render: function ( row, type, val, meta ) { 
+						return (val.link_99) ? "<a href='" + val.link_99 + "'>" + val.link_99 + "</a>" : ""
+					},
+					width: "25%",
+					className : "desktop"
 				},{
 					data: "actualizacion",
 					width: "10%",
 					className : "desktop"
 				}],
-				order: [[ 6, "desc" ]],
+				order: [[ 7, "desc" ]],
 				language: lang,
 				responsive: true,
 				colReorder: true,
@@ -147,6 +154,7 @@
 					<th></th>
 					<th>Stream</th>
 					<th>Pow</th>
+					<th>Playme</th>
 					<th>Actualizacion</th>
 				</tr>
 			</thead>
