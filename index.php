@@ -81,7 +81,7 @@
 				}, {
 					data: "title",
 					width : "10%",
-					className : "tablet-p"
+					className : "desktop"
 				}, {
 					data: "season",
 					width: "2%",
