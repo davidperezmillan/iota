@@ -81,15 +81,15 @@
 				}, {
 					data: "title",
 					width : "10%",
-					className : "min-tablet-p"
+					className : "tablet-p"
 				}, {
 					data: "season",
 					width: "2%",
-					className : "min-tablet-l"
+					className : "desktop"
 				}, {
 					data: "episode",
 					width: "2%",
-					className : "min-tablet-l"
+					className : "desktop"
 				}, {
 					data: null,
 					render: function ( row, type, val, meta ) { 
